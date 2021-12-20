@@ -1,0 +1,184 @@
+version: "2.0"
+
+stories:
+
+- story: happy path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: happy path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_anything_else
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry
+  - action: utter_anything_else
+  
+- story: sad path 2
+  steps:
+  - intent: deny
+  - action: utter_deny
+  
+- story: sad path 3
+  steps:
+  - intent: sorry
+  - action: utter_fallback_default_msg
+  - action: utter_call_helpdesk
+  - action: utter_deny
+
+- story: demo happy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_demo
+  - action: utter_see_demo
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_cheer_up
+  - action: utter_anything_else
+
+- story: demo sad
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_demo
+  - action: utter_see_demo
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry
+  - action: utter_anything_else
+
+- story: call happy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_help
+  - action: utter_call_helpdesk
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_cheer_up
+  - action: utter_anything_else
+  
+- story: call sad
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_help
+  - action: utter_call_helpdesk
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry
+  - action: utter_fallback_default_msg
+  - action: utter_anything_else
+  
+- story: solution brief happy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_solutions
+  - action: utter_know_solutions
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_cheer_up
+  - action: utter_anything_else
+  
+- story: solution brief sad
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_solutions
+  - action: utter_know_solutions
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry
+  - action: utter_fallback_default_msg
+  - action: utter_anything_else
+  
+- story: performance 1
+  steps:
+  - intent: performance
+  - action: utter_performance
+
+- story: tool charge 1
+  steps:
+  - intent: tool_charge
+  - action: utter_tool_charge
+  - action: utter_anything_else
+
+- story: trial 1
+  steps:
+  - intent: trial
+  - action: utter_trial_version
+  - action: utter_anything_else
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_meeting
+  - action: information_form
+  - active_loop: information_form
+  - slot_was_set:
+    - requested_slot: day
+  - slot_was_set:
+    - day: today
+    - day: tomorrow
+    - day: 21st
+    - day: 11th
+  - slot_was_set:
+    - requested_slot: time
+  - slot_was_set:
+    - time: 10am
+    - time: 11 am
+    - time: noon
+    - time: 3 pm
+    - time: 4pm
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Ritesh Kumar
+    - name: John M
+    - name: Joe Biden
+    - name: Kamala Harris
+  - slot_was_set:
+    - requested_slot: email_id
+  - slot_was_set:
+    - email_id: ritesh@cb.com
+    - email_id: john@gmail.com
+    - email_id: joe@org.gov
+    - email_id: ram@yahoo.com
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  #- action: utter_submit
+  - action: utter_slot_values
+  - action: utter_anything_else
+  
+- story: User interrupts the form and doesn't want to continue
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_meeting
+  - action: information_form
+  - active_loop: information_form
+  - intent: stop
+  - action: utter_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null

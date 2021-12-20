@@ -1,0 +1,314 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - good afternoon
+    - hey there
+    - Hi bot
+    - Hey bot
+    - hi again
+    - hi folks
+    - hi Mister
+    - hi there
+    - welcome
+    - greetings
+    - hello everybody
+    - hello is anybody there
+    - hello robot
+    - hello there
+    - hello friend
+    - hey dude
+    - hello dude
+    - hey bot
+    - whats up
+    - Whats up my bot
+    - hey, let's talk
+    - hey dude
+    - hello it is me again
+    - what up
+    - hi friend
+    - hi there it's me
+
+- intent: ask_howdoing
+  examples: |
+    - are you alright
+    - are you having a good day
+    - are you there
+    - Are you ok
+    - are you okay
+    - Do you feel good
+    - how are things going
+    - how are you
+    - how are you doing
+    - how are you feeling
+    - how do you do?
+    - how have you been
+    - how is it going
+    - how is your day
+    - how is your day going
+    - How was your day?
+    - How's it hanging?
+    - how's life
+    - how's life been treating you?
+    - How's life treating you friend?
+    - how's your day going
+    - How've you been?
+    - is everything all right
+    - is everything okay
+    - What's going on
+    - what's good
+    - What's new?
+    - What's up man
+    - What's up
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    
+- intent: tool_charge
+  examples: |
+    - How do I get charged
+    - What is the basic cost of the tool
+    - What is the tool plan
+    - can you tell me the price of subscription
+    - can you tell me how do I get charged
+    - would like to know how do I get charged
+    - What are the charges applicable
+    - Price of the tool
+    - Subscription rate
+    - Subscription charges
+
+- intent: store_data
+  examples: |
+    - Do you store notes or data in any form
+    - Do you store notes
+    - Do you store data in any form
+    - Does the tool capture any data
+    - Is the tool HIPPA compliant
+    - Are the medical records stored or saved
+    - Are the medical records stored in any form 
+    - Are you HIPPA compliant?
+
+- intent: performance
+  examples: |
+    - What’s the historical performance of tool
+    - How is the performance of the tool
+    - Can you tell me the performance of the tool
+    - what is the tool performance over the period of time
+    - what is the tool performance
+    - how is the performance in the past
+    - what is the speed of the tool
+    - how efficient the tool is
+    - how is productivity of the tool
+    - how fast can this tool process the input file
+    - performance of the tool
+    - performance
+    - tool performance
+    
+- intent: trial
+  examples: |
+    - Is the tool available for trial version
+    - are your solutions available for trial version
+    - Can I use the tool for trial
+    - trial version
+    - I would like to know about the tool's trial version
+    - can I use it for free
+    - Do I need subscribe for the tool
+    - How long is the trial period
+    - can you tell me about trial version
+    - can i subscribe to your trial version
+
+- intent: ask_help
+  examples: |
+    - help
+    - help me
+    - can you help me
+    - What can you do for me
+    - How can you help me
+    - Can you do favour for me
+    - Can you do me a favour
+    - would you help me
+    - would you do me a favour
+    - could you help me
+    - Can i ask a favour
+    - I need some help, please.
+    - I need some help
+    - I would like to get some help
+    - I would like to get some help from you
+    - Could you spare a moment
+    - I have some doubt, can you help me
+    - I can't manage. Can you help
+    - will you help me
+    - would you mind helping me
+    - could you help me out
+    - Is it possible for you to help
+    - Do you know anything about
+    - If you don't mind, can you help me
+    - I've got a favor to ask
+    - i have got a favour to ask
+    - what does it do
+    - Tell me about this tool
+    - What’s this tool
+    - do you have a helpdesk?
+    - what's your contact details?
+    - Where can i contact you?
+    - helpdesk?
+    - contact?
+    - contact details?
+    - Would like to set up a quick call
+    - call?
+    - quick call
+    - need to talk
+    - call needed
+
+- intent: ask_demo
+  examples: |
+    - do you have a demo?
+    - can you give demo?
+    - do you have demo?
+    - i want to see the demo
+    - demo please
+    - demo
+    - wanna see the demo
+    
+- intent: ask_solutions
+  examples: |
+    - I want to know about your solutions
+    - what solutions you have?
+    - solutions
+    - where can i get solution briefs?
+    - brief on your solutions
+    - what solutions you have?
+    - solution briefs
+
+- intent: ask_day
+  examples: |
+    - today
+    - tomorrow
+    - 21st December
+    - 11th October
+    - 12/11/2021
+    - 1st May
+    - 25th Jan
+
+- intent: ask_time
+  examples: |
+    - 10am
+    - 11 am
+    - noon
+    - 3 pm
+    - 4pm
+
+- intent: ask_name
+  examples: |
+    - Ritesh Kumar
+    - John M
+    - Joe Biden
+    - Kamala Harris
+
+- intent: ask_email_id
+  examples: |
+    - ritesh@cb.com
+    - john@gmail.com
+    - joe@org.gov
+    - ram@yahoo.com
+
+- intent: stop
+  examples: |
+    - stop the form
+    - stop
+    - i don't want to fill the details
+    - don't ask me these questions
+    - don't ask me fill the form
+    - stop it
+    - don't want to answer
+    - no answer
+
+- intent: sorry
+  examples: |
+    - What are you saying?
+    - Can't understand you
+    - You were of no help
+    - no
+    - nah
+    - not at all
+    - you are stupid
+    - you were horrible
+    - aweful
+    - very bad
+    - nonsense
