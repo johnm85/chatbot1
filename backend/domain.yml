@@ -1,0 +1,135 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- ask_howdoing
+- tool_charge
+- store_data
+- performance
+- trial
+- ask_help
+- ask_demo
+- ask_solutions
+- ask_meeting
+- ask_day
+- ask_time
+- ask_name
+- ask_email_id
+- stop
+- sorry
+entities:
+  - day
+  - time
+  - name
+  - email_id
+slots:
+  day:
+    type: text
+  time:
+    type: text
+  name:
+    type: text
+  email_id:
+    type: text
+forms:
+  information_form:
+    required_slots:
+        day:
+          - type: from_text
+            #entity: day
+        time:
+          - type: from_text
+            #entity: time
+        name:
+          - type: from_text
+            #entity: name
+        email_id:
+          - type: from_text
+            #entity: email_id
+responses:
+  utter_fallback_default_msg:
+  - text: Sometimes, I may not have the information you need. I am a virtual assistant
+  - text: If I am not able to answer your questions, maybe our <a>helpdesk</a> will be more helpful.
+  - text: Sorry. I am not able to understand you.
+  - text: I'm doing my best to help you. If I have not been able to answer your questions or you are facing some issue our team will be happy to assist you. Write a email to <a style='color:#0d9ee6!important;'>support@circlebase.com</a>
+  utter_greet:
+  - text: Hey! I can help with below (else, just write your message) 
+    buttons:
+    - title: Scheduling a meeting
+      payload: /ask_meeting
+    - title: Briefing about our solutions
+      payload: /ask_solutions
+    - title: Accessing the demo kit
+      payload: /ask_demo
+    - title: Connecting to help-desk
+      payload: /ask_help
+    #- title: Please write your query
+      #payload: /ask_help
+  utter_cheer_up:
+  - text: Cheers!!
+  utter_sorry:
+  - text: Sorry, to know that!
+  utter_did_that_help:
+  - text: Did that help you?
+    buttons:
+    - title: Yes
+      payload: /affirm
+    - title: No
+      payload: /sorry
+  utter_happy:
+  - text: Great, carry on!
+  utter_deny:
+  - text: Thanks so much! Bye.
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_howdoing:
+  - text: Hello! How are you doing today?
+  - text: Hello! How can i help you?
+  utter_trial_version:
+  - text: Yes. It is available for limited trial of <strong style='font-weight:bold;'>7 days.</strong> Please contact our sales at <a style='color:#0d9ee6!important;'>sales@circlebase.com</a>
+  utter_tool_charge:
+  - text: Clients are billed based on number of entities the tool is able to process. Once you upload the file, the tool automatically generates a summary report on its processing capabilities for those files, and your applicable rate. Post your confirmation based on summary report, you are charged.
+  utter_store_data:
+  - text: We don’t store client data in any form and any processed data is deleted from the system as soon as your session ends.
+  utter_performance:
+  - text: 'The bench mark of the performace is below </br><span style="border-radius: 4px;border: solid 1px #090e15;padding: 5px 10px;/* background: #e5e9ec; */margin-right: 7px;font-size: 11px;/* font-weight: bold; */color: #344548;/* color: #000; */display: inline-block;margin-bottom: 10px;">1 file: 70 seconds </span></br><span style="border-radius: 4px;border: solid 1px #090e15;padding: 5px 10px;/* background: #e5e9ec; */margin-right: 7px;font-size: 11px;/* font-weight: bold; */color: #344548;/* color: #000; */display: inline-block;margin-bottom: 10px;">100 files: 1070 seconds</span></br><span style="border-radius: 4px;border: solid 1px #090e15;padding: 5px 10px;/* background: #e5e9ec; */margin-right: 7px;font-size: 11px;/* font-weight: bold; */color: #344548;/* color: #000; */display: inline-block;margin-bottom: 10px;">1000 files: 10070 seconds</span>'
+  utter_see_demo:
+  - text: Click to see the <a href="https://circlebase.com/#solutions" style="color:#443db1">demo</a>
+  utter_know_solutions:
+  - text: Click to check our <a href="https://circlebase.com/#solutions" style="color:#443db1">solutions</a>
+  utter_call_helpdesk:
+  - text: Please contact the helpdesk at contact@circlebase.com
+  utter_anything_else:
+  - text: Anything else i can help you with?
+    buttons:
+    - title: Yes
+      payload: /greet
+    - title: No
+      payload: /deny
+  utter_scheduling_meeting:
+  - text: You can contact the helpdesk at contact@circlebase.com
+  utter_ask_day:
+  - text: "Please enter preferred day for meeting (Ex: today; on 11th Dec)"
+  utter_ask_time:
+  - text: "Please enter preferred time for meeting (Ex: 7pm, EST)"
+  utter_ask_name:
+  - text: "Please enter your firstname and lastname"
+  utter_ask_email_id:
+  - text: "Please enter your business email_id"
+  utter_submit:
+  - text: "Ok. Thanks {name}!"
+  utter_continue:
+  - text: "Hey! Shall i continue?"
+  utter_slot_values:
+  - text: "I have taken your meeting request for {day} at {time}, and will confirm you on {email_id} shortly"
+actions:
+  - information_form
+#  - insert_information
